@@ -1,0 +1,20 @@
+<!DOCTYPE html> 
+<html> 
+<body>
+  <h1></h1>   
+  <p>Traffic Light</p> 
+  <img id="light" src="red.jpg">
+  <button type="button" onclick="changeLights()">Change Traffic Lights</button> 
+  <script>
+    var list = ["red.jpg","redamber.jpg", "green.jpg","amber.jpg" ];
+    var index = 0;
+    function changeLights() {
+      index = index + 1;      
+      if (index == list.length) 
+        index = 0;      
+      var image = document.getElementById('light');     
+      image.src = list[index]; 
+    }
+  </script>  
+</body> 
+</html>   
