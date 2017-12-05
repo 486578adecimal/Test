@@ -35,6 +35,41 @@
 				background-color: #555;
 				color: white;
 			}
+			.button {
+			position: relative;
+			background-color: #F95DDA;
+			border: none;
+			font-size: 28px;
+			color: #FFFFFF;
+			padding: 20px;
+			width: 200px;
+			text-align: center;
+			-webkit-transition-duration: 0.4s; /* Safari */
+			transition-duration: 0.4s;
+			text-decoration: none;
+			overflow: hidden;
+			cursor: pointer;
+			}
+
+		.button:after {
+			content: "";
+			background: #f1f1f1;
+			display: block;
+			position: absolute;
+			padding-top: 300%;
+			padding-left: 350%;
+			margin-left: -20px !important;
+			margin-top: -120%;
+			opacity: 0;
+			transition: all 0.8s
+			}
+
+		.button:active:after {
+			padding: 0;
+			margin: 0;
+			opacity: 1;
+			transition: 0s
+			}
 		</style>
 	</head>
 	<body>
@@ -49,6 +84,7 @@
 	<div style="margin-left:25%;padding:1px 16px;height:1000px;">
 	  <h2>Completed Projects</h2>
 	  <h3>Place for my completed projects</h3>
+	  <button class="button" onclick="window.location.href='projects/completed/trafficlights/traffic.html'">Traffic Lights</button>
 	</div>
 
 	</body>
