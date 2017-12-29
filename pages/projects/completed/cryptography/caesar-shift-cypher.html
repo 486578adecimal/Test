@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html> 
+<body>
+  <h1></h1>   
+  <p>Caeser shift cipher</p>
+  <textarea id = "textArea1" rows="10" cols="100">
+  </textarea>
+  <button type="button" onclick="encrypt(document.getElementById('textArea1').value)">Encrypt</button>
+  <button type="button" onclick="decrypt(document.getElementById('textArea2').value)">Decrypt</button>
+  <textarea id = "textArea2" rows="10" cols="100">
+  </textarea>
+  <script>
+    var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+	var numberShift = 5;
+	function getIndex(letter){
+		index = 0;
+		for (i = 0;i < alphabet.length; i++){
+			index = index + 1;
+			if (alphabet[i] == letter)
+				return index
+		}
+	}
+	
+	function isUpperCase(letter){
+		if (letter == letter.toUpperCase())
+			return true
+		else
+			return false
+	}
+	
+	function shift(letter){
+		isUpper = isUpperCase(letter);
+		letter = letter.toLowerCase();
+		letterIndex = getIndex(letter);
+		if (letterIndex > 26 - numberShift)
+			newLetter = alphabet[letterIndex+numberShift-27];
+		else
+			newLetter = alphabet[letterIndex+numberShift-1];
+		if (isUpper)
+			return newLetter.toUpperCase()
+		else
+			return newLetter
+	}
+	
+	function deshift(letter){
+		isUpper = isUpperCase(letter);
+		letter = letter.toLowerCase();
+		letterIndex = getIndex(letter);
+		if (letterIndex < numberShift)
+			newLetter = alphabet[letterIndex-numberShift+25];
+		else
+			newLetter = alphabet[letterIndex-numberShift-1];
+		if (isUpper)
+			return newLetter.toUpperCase()
+		else
+			return newLetter
+	}
+	
+	function encrypt(text){
+		encryptedText = "";
+		for (var i in text){
+			var temp = text.charAt(i);
+			if (getIndex(temp.toLowerCase()))
+				temp = shift(temp);
+			encryptedText = encryptedText + temp;
+		}
+		document.getElementById("textArea2").value = encryptedText;
+		return encryptedText
+	}
+	
+	function decrypt(text){
+		decryptedText = "";
+		for (var i in text){
+			var temp = text.charAt(i);
+			if (getIndex(temp.toLowerCase()))
+				temp = deshift(temp);
+			decryptedText = decryptedText + temp;
+		}
+		document.getElementById("textArea1").value = decryptedText;
+		return decryptedText
+	}
+	
+  </script>  
+</body> 
+</html>   
