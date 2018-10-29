@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<button id="hai" onclick = "randomOps()">Random</button>
+<p id="output">Random Op</p>
+<script>
+	var p = document.getElementById("output")
+	var attackers = ["Twitch","Ash","Thatcher","Buck","Sledge","Thermite","IQ","Glaz","Fuse","monty","blitz","blackbeard","capitao","hibana","Jackal","zofia","dokkabi","mav"];
+	var defenders = ["Smoke","Mute","Castle","Pulse","Doc","Rook","kapkan","Tachanka","Jager","bandit", "Cavera","Frost","valk","echo","Mira","vigil","Maestro","Alibi"];
+	function randomOps(){
+		var temp = ""
+		temp = temp + attackers[Math.floor(Math.random()*attackers.length)].toUpperCase() + " || "
+		temp = temp + defenders[Math.floor(Math.random()*defenders.length)].toUpperCase()
+		p.innerHTML = temp
+	}
+</script>
+</html>
